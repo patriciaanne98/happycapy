@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Capy - AI-Powered Wellness Platform</title>
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+
+    <!-- Dashboard Page -->
+    <div class="dashboard-page" id="dashboardPage">
+        <div class="new-dashboard-container">
+            <!-- Left Sidebar -->
+            <div class="left-sidebar">
+                <!-- Settings Button -->
+                <div class="settings-btn">⚙️</div>
+                
+                <!-- Avatar and Level -->
+                <div class="user-avatar">
+                    <div class="avatar-circle"></div>
+                    <div class="user-level">Level 2: Social Butterfly</div>
+                </div>
+
+                <!-- Daily Check-in -->
+                <div class="check-in-card">
+                    <div class="check-in-header">
+                        <span class="fire-icon">🔥</span>
+                        <span>Daily Check-In</span>
+                    </div>
+                    <div class="week-dots">
+                        <span class="day-letter">M</span>
+                        <span class="day-letter">T</span>
+                        <span class="day-letter">W</span>
+                        <span class="day-letter active">T</span>
+                        <span class="day-letter">F</span>
+                        <span class="day-letter">S</span>
+                        <span class="day-letter">S</span>
+                    </div>
+                    <div class="dots-row">
+                        <div class="dot completed"></div>
+                        <div class="dot completed"></div>
+                        <div class="dot completed"></div>
+                        <div class="dot active"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <div class="arrow-right">></div>
+                </div>
+
+                <!-- Confidence Rating -->
+                <div class="confidence-card">
+                    <div class="confidence-header">Confidence Rating:</div>
+                    <div class="confidence-slider">
+                        <div class="slider-track">
+                            <div class="slider-fill"></div>
+                            <div class="slider-thumb"></div>
+                        </div>
+                        <div class="slider-labels">
+                            <span>Low</span>
+                            <span>High</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="stats-card">
+                    <div class="stat-item">
+                        <div class="stat-label">Streaks</div>
+                        <div class="stat-value">3</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Best</div>
+                        <div class="stat-value">3</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Capy Tokens</div>
+                        <div class="stat-value">86 XP</div>
+                    </div>
+                </div>
+
+                <!-- Recent Activities -->
+                <div class="activities-card">
+                    <div class="activities-header">Recent Activities</div>
+                    <div class="activity-bars">
+                        <div class="activity-bar yellow"></div>
+                        <div class="activity-bar green"></div>
+                        <div class="activity-bar purple"></div>
+                        <div class="activity-bar coral"></div>
+                    </div>
+                    <div class="activity-icons">
+                        <span>🎭</span>
+                        <span>⭐</span>
+                    </div>
+                </div>
+
+                <!-- Awards & Badges -->
+                <div class="awards-card">
+                    <div class="awards-header">Awards & Badges</div>
+                    <div class="badges-grid">
+                        <div class="badge green"></div>
+                        <div class="badge yellow"></div>
+                        <div class="badge pink"></div>
+                        <div class="badge cyan"></div>
+                        <div class="badge gray"></div>
+                        <div class="badge gray"></div>
+                        <div class="badge gray"></div>
+                        <div class="badge gray"></div>
+                        <div class="badge gray"></div>
+                    </div>
+                    <div class="arrow-right">></div>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="main-dashboard">
+                <!-- Header -->
+                <div class="dashboard-header">
+                    <div class="welcome-section">
+                        <h1>Welcome back, Sarah!</h1>
+                        <p>Ready to grow your confidence today and earn XP?</p>
+                    </div>
+                    <button class="logout-btn" onclick="logout()">LOGOUT</button>
+                </div>
+
+                <!-- Activity Cards -->
+                <div class="activity-cards">
+                    <div class="activity-card purple" onclick="showDashboardSection('simulation')">
+                        <div class="card-icon">🧠</div>
+                        <h3>Capy Simulation</h3>
+                        <p>Practice real-world conversations.</p>
+                        <button class="card-btn purple-btn">Get Started</button>
+                    </div>
+
+                    <div class="activity-card green" onclick="showDashboardSection('mindfulness')">
+                        <div class="card-icon">🧘‍♀️</div>
+                        <h3>Mindfulness</h3>
+                        <p>Try breathing exercises.</p>
+                        <button class="card-btn green-btn">Get Started</button>
+                    </div>
+
+                    <div class="activity-card yellow" onclick="showDashboardSection('affirmations')">
+                        <div class="card-icon">⭐</div>
+                        <h3>Daily Affirmations</h3>
+                        <button class="card-btn yellow-btn">Get Started</button>
+                    </div>
+
+                    <div class="activity-card coral" onclick="showDashboardSection('journal')">
+                        <div class="card-icon">📝</div>
+                        <h3>Journal Entries</h3>
+                        <button class="card-btn coral-btn">Get Started</button>
+                    </div>
+                </div>
+
+                <!-- Capy Shop Section -->
+                <div class="capy-shop">
+                    <h2>Capy Shop</h2>
+                    <div class="shop-customize">
+                        <span>Customize your Capy - use your XP!</span>
+                        <span class="arrow-right">></span>
+                    </div>
+                </div>
+
+                <!-- Individual Sections (Hidden by default) -->
+                <div id="simulation" class="dashboard-section">
+                    <div class="section-content">
+                        <h1>AI Simulation Practice</h1>
+                        <div class="simulation-container">
+                            <h3>Job Interview Simulation</h3>
+                            <div class="chat-container" id="chatContainer">
+                                <div class="message ai">
+                                    <strong>AI Interviewer:</strong> Hello! I'm here to help you practice for your job interview. Let's start with a simple question: Can you tell me about yourself?
+                                </div>
+                            </div>
+                            <div class="input-container">
+                                <input type="text" id="chatInput" placeholder="Type your response..." onkeypress="handleChatKeypress(event)">
+                                <button class="send-button" onclick="sendMessage()">Send</button>
+                            </div>
+                            <div style="margin-top: 1rem;">
+                                <select id="simulationType" onchange="changeSimulation()">
+                                    <option value="interview">Job Interview</option>
+                                    <option value="presentation">Presentation Practice</option>
+                                    <option value="social">Social Conversation</option>
+                                    <option value="negotiation">Negotiation Skills</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mindfulness" class="dashboard-section">
+                    <div class="section-content">
+                        <h1>Mindfulness & Breathing</h1>
+                        <div class="breathing-exercise">
+                            <h3>4-7-8 Breathing Technique</h3>
+                            <p>Inhale for 4 seconds, hold for 7 seconds, exhale for 8 seconds</p>
+                            
+                            <div class="breathing-circle" id="breathingCircle">
+                                <span id="breathingText">Ready to begin?</span>
+                            </div>
+                            
+                            <div class="breathing-controls">
+                                <button class="breathing-button" onclick="startBreathing()">Start Exercise</button>
+                                <button class="breathing-button" onclick="stopBreathing()">Stop</button>
+                                <button class="breathing-button" onclick="resetBreathing()">Reset</button>
+                            </div>
+
+                            <div class="benefits-section">
+                                <h4>Benefits of Regular Practice:</h4>
+                                <ul>
+                                    <li>Reduces stress and anxiety</li>
+                                    <li>Improves focus and concentration</li>
+                                    <li>Enhances emotional regulation</li>
+                                    <li>Promotes better sleep quality</li>
+                                    <li>Lowers blood pressure</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="affirmations" class="dashboard-section">
+                    <div class="section-content">
+                        <h1>Daily Affirmations</h1>
+                        <div class="affirmations-container">
+                            <div class="affirmation-card">
+                                <h3>Today's Affirmation</h3>
+                                <p class="affirmation-text">"I am confident, capable, and ready to face any challenge that comes my way."</p>
+                                <button class="affirmation-btn">Generate New Affirmation</button>
+                            </div>
+                            <div class="affirmation-history">
+                                <h4>Your Recent Affirmations</h4>
+                                <div class="history-item">"I embrace growth and learning in every situation."</div>
+                                <div class="history-item">"My voice matters and my ideas are valuable."</div>
+                                <div class="history-item">"I choose courage over comfort in pursuing my goals."</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="journal" class="dashboard-section">
+                    <div class="section-content">
+                        <h1>Journal Entries</h1>
+                        <div class="journal-container">
+                            <div class="journal-prompt">
+                                <h3>Today's Prompt</h3>
+                                <p>"What's one thing you accomplished today that you're proud of?"</p>
+                            </div>
+                            <div class="journal-entry">
+                                <textarea id="journalText" placeholder="Write your thoughts here..." rows="10"></textarea>
+                                <div class="journal-actions">
+                                    <button class="save-btn">Save Entry</button>
+                                    <button class="new-prompt-btn">New Prompt</button>
+                                </div>
+                            </div>
+                            <div class="journal-history">
+                                <h4>Recent Entries</h4>
+                                <div class="entry-item">
+                                    <div class="entry-date">June 10, 2025</div>
+                                    <div class="entry-preview">Today I completed my first practice interview and felt more confident...</div>
+                                </div>
+                                <div class="entry-item">
+                                    <div class="entry-date">June 9, 2025</div>
+                                    <div class="entry-preview">Had a great mindfulness session this morning. The breathing exercises...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
